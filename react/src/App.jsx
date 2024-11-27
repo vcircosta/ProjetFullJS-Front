@@ -1,22 +1,24 @@
-import { useEffect, useState } from 'react';
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import './App.css'; // Pour garder les styles existants
 
 function App() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    fetch('/api/healthcheck')
-      .then((response) => response.json())
-      .then((data) => setMessage(data.message))
-      .catch((error) => console.error('Erreur:', error));
-  }, []);
-
   return (
-    <div>
-      <h1>React + Vite</h1>
-      <p>{message}</p>
-    </div>
+    <Router>
+      <div className="app-container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<h1>Tableau de bord (à implémenter)</h1>} />
+        </Routes>
+      </div>
+    </Router>
   );
-  
 }
 
 export default App;
