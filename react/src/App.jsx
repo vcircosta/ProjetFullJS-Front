@@ -1,22 +1,22 @@
-import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AllCVs from './AllCVs';
+import Register from './Register';
+import Login from './Login';
+import MyCv from './MyCv';
+import CvDetails from './CvDetails';
 
 function App() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    fetch('/api/healthcheck')
-      .then((response) => response.json())
-      .then((data) => setMessage(data.message))
-      .catch((error) => console.error('Erreur:', error));
-  }, []);
-
   return (
-    <div>
-      <h1>React + Vite</h1>
-      <p>{message}</p>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<AllCVs />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/mycv" element={<MyCv />} />
+        <Route path="/cv/:id" element={<CvDetails />} />
+      </Routes>
+    </Router>
   );
-  
 }
 
 export default App;
