@@ -6,6 +6,7 @@ const Profile = () => {
   const [newUsername, setNewUsername] = useState('');
   const [newEmail, setNewEmail] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(''); // Pour afficher un message de succès
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -37,6 +38,9 @@ const Profile = () => {
 
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
+    setError('');
+    setSuccess(''); // Réinitialiser les messages
+
     const token = localStorage.getItem('token');
     if (!token) return;
 
@@ -51,9 +55,9 @@ const Profile = () => {
         }
       );
       setUserData(response.data.data);
-      setError('');
+      setSuccess('Profil mis à jour avec succès.'); // Affiche un message de succès
     } catch (error) {
-      setError('Erreur lors de la mise à jour du profil');
+      setError('Erreur lors de la mise à jour du profil.'); // Affiche un message d'erreur
     }
   };
 
@@ -62,7 +66,8 @@ const Profile = () => {
   return (
     <div>
       <h1>Profil</h1>
-      {error && <p className="error">{error}</p>}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {success && <p style={{ color: 'green' }}>{success}</p>}
       <form onSubmit={handleUpdateProfile}>
         <div className="form-group">
           <label>Nom d'utilisateur</label>

@@ -8,6 +8,9 @@ import Recommandations from './Recommandations';
 import MyCv from './MyCv';
 import Profile from './Profile';
 import CvDetails from './CvDetails';
+import EditCv from './EditCv';
+import CreateCv from './CreateCv';
+
 
 function App() {
   return (
@@ -18,9 +21,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/recommandations" element={<Recommandations />} />
-        <Route path="/cv" element={<MyCv />} />
+       
         <Route path="/profile" element={<Profile />} />
         <Route path="/cv/:id" element={<CvDetails />} />
+        <Route path="/mycv" element={<MyCv />} />
+        <Route path="/edit-cv" element={<EditCv />} />
+        <Route path="/create-cv" element={<CreateCv />} />
+
       </Routes>
     </Router>
   );
