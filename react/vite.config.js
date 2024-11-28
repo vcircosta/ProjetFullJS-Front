@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/auth': 'http://localhost:5000', // Rediriger les requêtes vers ton back-end
+      '/auth': 'http://localhost:5000',
       '/users': 'http://localhost:5000',
       '/cvs': 'http://localhost:5000',
       '/recommendations': 'http://localhost:5000',
