@@ -4,7 +4,7 @@ import Navbar from './Navbar'; // Importe la navbar
 import AllCVs from './AllCVs';
 import Login from './Login';
 import Register from './Register';
-import Recommandations from './Recommandations';
+import Recommendations from './Recommendations';
 import MyCv from './MyCv';
 import Profile from './Profile';
 import CvDetails from './CvDetails';
@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<AllCVs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/recommandations" element={<Recommandations />} />
+        <Route path="/recommendations" element={<Recommendations />} />
        
         <Route path="/profile" element={<Profile />} />
         <Route path="/cv/:id" element={<CvDetails />} />

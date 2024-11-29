@@ -45,7 +45,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/recommandations" style={{ textDecoration: 'none', color: 'black' }}>
+          <Link to="/recommendations" style={{ textDecoration: 'none', color: 'black' }}>
             Recommandations
           </Link>
         </li>
